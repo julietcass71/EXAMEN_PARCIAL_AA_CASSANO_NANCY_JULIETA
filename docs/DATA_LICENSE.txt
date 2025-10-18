@@ -1,0 +1,5 @@
+CC0 1.0 Universal (Public Domain Dedication)
+
+This dataset is released into the public domain.
+You may copy, modify, distribute and perform the work,
+even for commercial purposes, without asking permission.
