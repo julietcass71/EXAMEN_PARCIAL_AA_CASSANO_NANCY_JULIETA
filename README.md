@@ -1,27 +1,31 @@
 # ML Auditoría de Prestaciones Extrahospitalarias (TDF)
+**EXAMEN PARCIAL – Aprendizaje Automático**  
+**Entrega 2 · Descripción del Dataset y Origen**  
 
-# EXAMEN PARCIAL – Aprendizaje Automático  
-### Entrega 2 · Descripción del Dataset y Origen  
 **Estudiante:** Nancy Julieta Cassano  
 **Proyecto:** Auditoría de Prestaciones Extrahospitalarias con Aprendizaje Automático  
 **Institución:** Tecnicatura Superior en Ciencia de Datos e Inteligencia Artificial – Centro Politécnico Superior Malvinas Argentinas  
 **Docente:** Nicolás Caballero  
 **Año:** 2025  
 
-# 1 · Contexto del proyecto
+## 1 · Contexto del proyecto
+Este trabajo continúa la **Entrega 1**, donde se formuló el objetivo general de desarrollar un modelo de **aprendizaje automático supervisado** que prediga la decisión de **autorización o no autorización** de una prestación médica extrahospitalaria, utilizando variables **administrativas, médicas y socioeconómicas**.
 
-Este trabajo continúa la **Entrega 1**, donde se formuló el objetivo general de desarrollar un modelo de aprendizaje automático supervisado que prediga la decisión de **autorización o no autorización** de una prestación médica extrahospitalaria, utilizando variables administrativas, médicas y socioeconómicas.  
-El propósito es asistir a la **Dirección de Prestaciones Médicas y Programas Sociales del Ministerio de Salud de Tierra del Fuego** en el proceso de auditoría, buscando mayor eficiencia, transparencia y trazabilidad en las decisiones.
+El propósito es asistir a la **Dirección de Prestaciones Médicas y Programas Sociales del Ministerio de Salud de Tierra del Fuego** en el proceso de auditoría, buscando **mayor eficiencia, transparencia y trazabilidad** en las decisiones.
 
 Esta **Entrega 2** se centra en la descripción detallada del **dataset** que será utilizado en la etapa de entrenamiento y validación de los modelos.
 
-# 2 · Origen de los datos
+## 2 · Origen de los datos
+El dataset fue **generado sintéticamente** por la autora a partir de reglas de negocio reales aplicadas por la Dirección de Prestaciones Médicas de Tierra del Fuego, con el objetivo de **proteger la confidencialidad de los pacientes** y evitar el uso de información sensible.
 
-El dataset no proviene de registros reales, sino que fue **generado sintéticamente** siguiendo las **reglas de negocio reales** aplicadas por la Dirección de Prestaciones Médicas de Tierra del Fuego en el proceso de auditoría de solicitudes.
+- **Fecha de generación:** {17/10/2025}
+- **Herramienta / script:** `src/data/make_dataset.py`  
+- **Semilla aleatoria (reproducibilidad):** {seed}  
+- **Periodo simulado:** enero – septiembre de 2025  
+- **Balance de clases:** 91 % autorizadas / 9 % no autorizadas  
+  - **Conteos:** 1.092 “autorizar = 1” y 108 “autorizar = 0” (sobre 1.200 instancias)
 
-Se simularon **1.200 solicitudes de prestaciones médicas** correspondientes al período **enero – septiembre de 2025**, manteniendo proporciones reales entre casos aprobados y no aprobados.  
-El dataset busca reflejar fielmente los criterios utilizados durante la auditoría, incluyendo:
-
+**Criterios simulados:**
 - Residencia provincial y documentación vigente.  
 - Ausencia o presencia de cobertura social.  
 - Situación socioeconómica familiar.  
@@ -29,49 +33,60 @@ El dataset busca reflejar fielmente los criterios utilizados durante la auditor�
 - Informe social validado por el servicio hospitalario.  
 - Completitud de la documentación presentada.  
 
-Se adoptó un **balance realista**, con aproximadamente **91 % de casos autorizados** y **9 % no autorizados**, en línea con los valores observados en la práctica institucional.
+> La decisión de utilizar datos sintéticos responde a **razones éticas y regulatorias**, garantizando el cumplimiento de los principios de confidencialidad y trazabilidad institucional.  
+> El código generador y las reglas de simulación se encuentran documentadas para asegurar **reproducibilidad y transparencia**.
 
-# 3 · Estructura del dataset
-
-- **Nombre del archivo:** `dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv`  
-- **Ubicación:** [`data/raw/`](data/raw/dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv)  
-- **Cantidad de instancias:** 1.200  
-- **Cantidad de variables:** 21 (20 predictoras + 1 target `autorizar`)  
+## 3 · Estructura del dataset
+- **Archivo:** `data/raw/dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv`  
+- **Versión:** v1.0  
+- **Hash (MD5):** {md5}  
+- **Instancias (filas):** 1.200  
+- **Variables (columnas):** 21 (20 predictoras + 1 target `autorizar`)  
+- **Formato:** CSV UTF-8 con encabezado (separador `,`)  
 - **Variable objetivo:** `autorizar` (1 = autorizar · 0 = no autorizar)  
-- **Formato:** CSV UTF-8 con encabezado  
+- **Calidad de datos intencional:** se incorporaron valores nulos, fechas fuera de rango y errores de carga simulados para aplicar técnicas de limpieza y validación durante la Entrega 3.
 
-# Principales variables incluidas
+### 3.1 · Diccionario de datos (resumen)
 
-| Tipo | Ejemplo de columnas |
-|------|----------------------|
-| **Numéricas** | `edad`, `ingresos_mensuales`, `egresos_mensuales`, `vehiculos_cantidad`, `grupo_familiar_a_cargo` |
-| **Categóricas** | `zona`, `hospital_origen`, `estado_civil`, `ocupacion`, `vivienda_tipo` |
-| **Booleanas** | `dni_domicilio_tdf`, `disponible_en_red_publica`, `tiene_cobertura_inicial`, `derecho_cobertura_dir`, `informe_social_ok`, `documentacion_completa`, `cud` |
-| **Fecha** | `fecha_solicitud` (ISO YYYY-MM-DD) |
+| Variable | Tipo | Descripción | Dominio / Ejemplos |
+|-----------|------|--------------|--------------------|
+| `fecha_solicitud` | fecha (YYYY-MM-DD) | Fecha en que se ingresó la solicitud | 2025-03-17 |
+| `edad` | numérica (entera) | Edad del/la paciente | 0–99 |
+| `zona` | categórica | Zona geográfica | norte / sur |
+| `hospital_origen` | categórica | Establecimiento que inicia el trámite | HRU / HRC / CAPS_x |
+| `estado_civil` | categórica | Estado civil del responsable | soltero / casado / divorciado / viudo |
+| `ocupacion` | categórica | Ocupación u oficio | empleado / autónomo / desocupado / estudiante |
+| `vivienda_tipo` | categórica | Tipo de vivienda | propia / alquilada / prestada |
+| `ingresos_mensuales` | numérica | Ingresos netos del hogar (ARS) | ≥0 |
+| `egresos_mensuales` | numérica | Egresos mensuales del hogar (ARS) | ≥0 |
+| `grupo_familiar_a_cargo` | numérica (entera) | Cantidad de dependientes | 0–10 |
+| `vehiculos_cantidad` | numérica (entera) | Vehículos a nombre del hogar | 0–4 |
+| `dni_domicilio_tdf` | booleana | DNI con domicilio en Tierra del Fuego | True / False |
+| `disponible_en_red_publica` | booleana | Prestación disponible en red pública provincial | True / False |
+| `tiene_cobertura_inicial` | booleana | Posee obra social/prepaga activa | True / False |
+| `derecho_cobertura_dir` | booleana | Derecho derivado (por cónyuge/progenitor) | True / False |
+| `cud` | booleana | Posee CUD vigente | True / False |
+| `informe_social_ok` | booleana | Informe social validado | True / False |
+| `documentacion_completa` | booleana | Documentación requerida completa | True / False |
+| `zona_riesgo_sanitario` | booleana | Indicador de riesgo sanitario local | True / False |
+| `tipo_prestacion` | categórica | Tipo de prestación médica | diagnóstico / tratamiento / cirugía |
+| `autorizar` | binaria (**target**) | Resultado de la auditoría | 1 / 0 |
 
-> Se incluyeron **inconsistencias intencionales** (valores nulos, fechas fuera de rango, errores de carga) para realizar un **EDA completo** durante la Entrega 3.
+## 4 · Propósito del dataset
+Este conjunto de datos será la base para el desarrollo de **modelos de aprendizaje supervisado**, específicamente:
 
-# 4 · Propósito del dataset
+- **Regresión Logística** para estimar la probabilidad de autorización.  
+- **Árbol de Decisión** para interpretar reglas y criterios de decisión.
 
-Este conjunto de datos será la base para el desarrollo de modelos de **aprendizaje supervisado**, específicamente:
+En etapas posteriores se incluirá la comparación con modelos **K-NN** y **SVM** para evaluar desempeño.
 
-1. **Regresión Logística** – para estimar la probabilidad de autorización.  
-2. **Árbol de Decisión** – para interpretar reglas y criterios de decisión.  
-
-Las siguientes etapas del proyecto incluirán:
-- **Entrega 3:** Análisis exploratorio y limpieza de datos.  
-- **Entrega 4:** Entrenamiento y validación de modelos.  
-- **Entrega Final:** Interpretación de resultados y conclusiones institucionales.
-
-# 5 · Licencias y atribución
-
+## 5 · Licencias y atribución
 - **Licencia del código:** MIT License  
-- **Licencia de los datos:** CC0 1.0 Universal (Dominio Público) – ver [`docs/DATA_LICENSE.txt`](docs/DATA_LICENSE.txt)  
+- **Licencia de los datos:** CC0 1.0 Universal (Dominio Público) – ver `docs/DATA_LICENSE.txt`  
 - **Autora:** Nancy Julieta Cassano (2025)  
-- **Repositorio:** [EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA](https://github.com/julietcass71/EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA)
+- **Repositorio:** `EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA`
 
-# 6 · Estructura del proyecto (Cookiecutter Data Science)
-
+## 6 · Estructura del proyecto (Cookiecutter Data Science)
 
 Project Organization
 ------------
