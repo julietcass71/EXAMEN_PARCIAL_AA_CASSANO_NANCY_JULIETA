@@ -18,7 +18,7 @@ Esta **Entrega 2** se centra en la descripción detallada del **dataset** que se
 ## 2 · Origen de los datos
 El dataset fue **generado sintéticamente** por la autora a partir de reglas de negocio reales aplicadas por la Dirección de Prestaciones Médicas de Tierra del Fuego, con el objetivo de **proteger la confidencialidad de los pacientes** y evitar el uso de información sensible.
 
-- **Fecha de generación:** {17/10/2025}
+- **Fecha de generación:** 17/10/2025
 - **Herramienta / script:** `src/data/make_dataset.py`  
 - **Semilla aleatoria (reproducibilidad):** {seed}  
 - **Periodo simulado:** enero – septiembre de 2025  
