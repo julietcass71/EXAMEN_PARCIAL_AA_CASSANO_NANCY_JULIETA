@@ -20,7 +20,7 @@ El dataset fue **generado sintéticamente** por la autora a partir de reglas de 
 
 - **Fecha de generación:** 17/10/2025
 - **Herramienta / script:** `src/data/make_dataset.py`  
-- **Semilla aleatoria (reproducibilidad):** {seed}  
+- **Semilla aleatoria (reproducibilidad):** 2025  
 - **Periodo simulado:** enero – septiembre de 2025  
 - **Balance de clases:** 91 % autorizadas / 9 % no autorizadas  
   - **Conteos:** 1.092 “autorizar = 1” y 108 “autorizar = 0” (sobre 1.200 instancias)
