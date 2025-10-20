@@ -23,7 +23,7 @@ El dataset fue **generado sintéticamente** por la autora a partir de reglas de 
 - **Semilla aleatoria (reproducibilidad):** 2025  
 - **Periodo simulado:** enero – septiembre de 2025  
 - **Balance de clases:** 91 % autorizadas / 9 % no autorizadas  
-  - **Conteos:** 1.092 “autorizar = 1” y 108 “autorizar = 0” (sobre 1.200 instancias)
+- **Conteos:** 1.092 “autorizar = 1” y 108 “autorizar = 0” (sobre 1.200 instancias) 
 
 **Criterios simulados:**
 - Residencia provincial y documentación vigente.  
@@ -39,12 +39,19 @@ El dataset fue **generado sintéticamente** por la autora a partir de reglas de 
 ## 3 · Estructura del dataset
 - **Archivo:** `data/raw/dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv`  
 - **Versión:** v1.0  
-- **Hash (MD5):** {md5}  
 - **Instancias (filas):** 1.200  
 - **Variables (columnas):** 21 (20 predictoras + 1 target `autorizar`)  
 - **Formato:** CSV UTF-8 con encabezado (separador `,`)  
 - **Variable objetivo:** `autorizar` (1 = autorizar · 0 = no autorizar)  
-- **Calidad de datos intencional:** se incorporaron valores nulos, fechas fuera de rango y errores de carga simulados para aplicar técnicas de limpieza y validación durante la Entrega 3.
+- **Calidad de datos intencional:** se incorporaron valores nulos, fechas fuera de rango y errores de carga simulados para aplicar técnicas de limpieza y validación durante la Entrega 3.  
+
+### Detalles técnicos del dataset
+**Fecha de generación:** 17/10/2025  
+**Semilla aleatoria:** 2025  
+**Hash (MD5):** c3f985a546faedf456a37d197c3f8502  
+**Instancias (filas):** 1.200  
+**Variables (columnas):** 21  
+**Distribución del target `autorizar`:** 1 = 1.092 · 0 = 108
 
 ### 3.1 · Diccionario de datos (resumen)
 
