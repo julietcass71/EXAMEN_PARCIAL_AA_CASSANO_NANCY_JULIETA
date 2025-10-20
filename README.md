@@ -1,6 +1,6 @@
 # ML Auditoría de Prestaciones Extrahospitalarias (TDF)
 **EXAMEN PARCIAL – Aprendizaje Automático**  
-**Entrega 2 · Descripción del Dataset y Origen**  
+**Entrega 2 · Descripción del Dataset y Origen**
 
 **Estudiante:** Nancy Julieta Cassano  
 **Proyecto:** Auditoría de Prestaciones Extrahospitalarias con Aprendizaje Automático  
@@ -9,21 +9,21 @@
 **Año:** 2025  
 
 ## 1 · Contexto del proyecto
-Este trabajo continúa la **Entrega 1**, donde se formuló el objetivo general de desarrollar un modelo de **aprendizaje automático supervisado** que prediga la decisión de **autorización o no autorización** de una prestación médica extrahospitalaria, utilizando variables **administrativas, médicas y socioeconómicas**.
+Este trabajo continúa la Entrega 1, donde se formuló el objetivo general de desarrollar un modelo de aprendizaje automático supervisado que prediga la decisión de **autorización o no autorización de una prestación médica extrahospitalaria**, utilizando variables administrativas, médicas y socioeconómicas.
 
 El propósito es asistir a la **Dirección de Prestaciones Médicas y Programas Sociales del Ministerio de Salud de Tierra del Fuego** en el proceso de auditoría, buscando **mayor eficiencia, transparencia y trazabilidad** en las decisiones.
 
-Esta **Entrega 2** se centra en la descripción detallada del **dataset** que será utilizado en la etapa de entrenamiento y validación de los modelos.
+Esta Entrega 2 se centra en la descripción detallada del dataset que será utilizado en la etapa de entrenamiento y validación de los modelos.
 
 ## 2 · Origen de los datos
-El dataset fue **generado sintéticamente** por la autora a partir de reglas de negocio reales aplicadas por la Dirección de Prestaciones Médicas de Tierra del Fuego, con el objetivo de **proteger la confidencialidad de los pacientes** y evitar el uso de información sensible.
+El dataset fue generado sintéticamente por la autora a partir de reglas de negocio reales aplicadas por la Dirección de Prestaciones Médicas de Tierra del Fuego, con el objetivo de proteger la confidencialidad de los pacientes y evitar el uso de información sensible.
 
-- **Fecha de generación:** 17/10/2025
+- **Fecha de generación:** 19/10/2025  
 - **Herramienta / script:** `src/data/make_dataset.py`  
 - **Semilla aleatoria (reproducibilidad):** 2025  
 - **Periodo simulado:** enero – septiembre de 2025  
 - **Balance de clases:** 91 % autorizadas / 9 % no autorizadas  
-- **Conteos:** 1.092 “autorizar = 1” y 108 “autorizar = 0” (sobre 1.200 instancias) 
+- **Conteos:** 1.092 “autorizar = 1” y 108 “autorizar = 0” (sobre 1.200 instancias)  
 
 **Criterios simulados:**
 - Residencia provincial y documentación vigente.  
@@ -33,8 +33,8 @@ El dataset fue **generado sintéticamente** por la autora a partir de reglas de 
 - Informe social validado por el servicio hospitalario.  
 - Completitud de la documentación presentada.  
 
-> La decisión de utilizar datos sintéticos responde a **razones éticas y regulatorias**, garantizando el cumplimiento de los principios de confidencialidad y trazabilidad institucional.  
-> El código generador y las reglas de simulación se encuentran documentadas para asegurar **reproducibilidad y transparencia**.
+La decisión de utilizar datos sintéticos responde a **razones éticas y regulatorias**, garantizando el cumplimiento de los principios de confidencialidad y trazabilidad institucional.  
+El código generador y las reglas de simulación se encuentran documentadas para asegurar **reproducibilidad y transparencia**.
 
 ## 3 · Estructura del dataset
 - **Archivo:** `data/raw/dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv`  
@@ -46,14 +46,14 @@ El dataset fue **generado sintéticamente** por la autora a partir de reglas de 
 - **Calidad de datos intencional:** se incorporaron valores nulos, fechas fuera de rango y errores de carga simulados para aplicar técnicas de limpieza y validación durante la Entrega 3.  
 
 ### Detalles técnicos del dataset
-**Fecha de generación:** 17/10/2025  
-**Semilla aleatoria:** 2025  
-**Hash (MD5):** c3f985a546faedf456a37d197c3f8502  
-**Instancias (filas):** 1.200  
-**Variables (columnas):** 21  
-**Distribución del target `autorizar`:** 1 = 1.092 · 0 = 108
+- **Fecha de generación:** 19/10/2025  
+- **Semilla aleatoria:** 2025  
+- **Hash (MD5):** c3f985a546faedf456a37d197c3f8502  
+- **Instancias (filas):** 1.200  
+- **Variables (columnas):** 21  
+- **Distribución del target `autorizar`:** 1 = 1.092 · 0 = 108  
 
-### 3.1 · Diccionario de datos (resumen)
+### 3.1 · Diccionario de datos
 
 | Variable | Tipo | Descripción | Dominio / Ejemplos |
 |-----------|------|--------------|--------------------|
@@ -64,28 +64,28 @@ El dataset fue **generado sintéticamente** por la autora a partir de reglas de 
 | `estado_civil` | categórica | Estado civil del responsable | soltero / casado / divorciado / viudo |
 | `ocupacion` | categórica | Ocupación u oficio | empleado / autónomo / desocupado / estudiante |
 | `vivienda_tipo` | categórica | Tipo de vivienda | propia / alquilada / prestada |
-| `ingresos_mensuales` | numérica | Ingresos netos del hogar (ARS) | ≥0 |
-| `egresos_mensuales` | numérica | Egresos mensuales del hogar (ARS) | ≥0 |
+| `ingresos_mensuales` | numérica | Ingresos netos del hogar (ARS) | ≥ 0 |
+| `egresos_mensuales` | numérica | Egresos mensuales del hogar (ARS) | ≥ 0 |
 | `grupo_familiar_a_cargo` | numérica (entera) | Cantidad de dependientes | 0–10 |
 | `vehiculos_cantidad` | numérica (entera) | Vehículos a nombre del hogar | 0–4 |
 | `dni_domicilio_tdf` | booleana | DNI con domicilio en Tierra del Fuego | True / False |
 | `disponible_en_red_publica` | booleana | Prestación disponible en red pública provincial | True / False |
-| `tiene_cobertura_inicial` | booleana | Posee obra social/prepaga activa | True / False |
-| `derecho_cobertura_dir` | booleana | Derecho derivado (por cónyuge/progenitor) | True / False |
+| `tiene_cobertura_inicial` | booleana | Posee obra social / prepaga activa | True / False |
+| `derecho_cobertura_dir` | booleana | Derecho derivado (por cónyuge / progenitor) | True / False |
 | `cud` | booleana | Posee CUD vigente | True / False |
 | `informe_social_ok` | booleana | Informe social validado | True / False |
 | `documentacion_completa` | booleana | Documentación requerida completa | True / False |
 | `zona_riesgo_sanitario` | booleana | Indicador de riesgo sanitario local | True / False |
 | `tipo_prestacion` | categórica | Tipo de prestación médica | diagnóstico / tratamiento / cirugía |
-| `autorizar` | binaria (**target**) | Resultado de la auditoría | 1 / 0 |
+| `autorizar` | binaria (target) | Resultado de la auditoría | 1 / 0 |
 
 ## 4 · Propósito del dataset
 Este conjunto de datos será la base para el desarrollo de **modelos de aprendizaje supervisado**, específicamente:
 
 - **Regresión Logística** para estimar la probabilidad de autorización.  
-- **Árbol de Decisión** para interpretar reglas y criterios de decisión.
+- **Árbol de Decisión** para interpretar reglas y criterios de decisión.  
 
-En etapas posteriores se incluirá la comparación con modelos **K-NN** y **SVM** para evaluar desempeño.
+En etapas posteriores se incluirá la comparación con **modelos K-NN y SVM** para evaluar desempeño.
 
 ## 5 · Licencias y atribución
 - **Licencia del código:** MIT License  
