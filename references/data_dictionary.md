@@ -1,13 +1,13 @@
 # Data Dictionary – Dataset de Auditoría de Prestaciones Extrahospitalarias (TDF)
 
-**Archivo fuente:** `data/raw/dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv`  
+**Archivo fuente:** data/raw/dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv  
 **Versión:** v1.0  
 **Cantidad de registros (filas):** 1.200  
-**Cantidad de variables (columnas):** 21 (20 predictoras + 1 objetivo)  
-**Variable objetivo:** `autorizar` (1 = autorizar, 0 = no autorizar)  
-**Autora:** Nancy Julieta Cassano  
-**Fecha de generación:** 17/10/2025
-**Semilla aleatoria:** 2025
+**Cantidad de variables (columnas):** 21  
+**Variable objetivo:** autorizar (1 = autorizar, 0 = no autorizar)  
+**Semilla aleatoria:** 2025  
+**Fecha de generación:** 19/10/2025  
+**Hash (MD5):** c3f985a546faedf456a37d197c3f8502
 
 ## 1. Descripción general
 
