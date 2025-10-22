@@ -52,9 +52,15 @@ El script generador se encuentra documentado en `src/data/make_dataset.py`.
 - Se detectaron autorizaciones residuales en combinaciones que deberían descartarse (p. ej., con cobertura activa o domicilio fuera de TDF), probablemente por ruido sintético o reglas conjuntas. Esto se documenta y se analizará con un árbol de decisión.
 
 ## 5. Archivos de la Entrega 2
-- 📘 Informe descriptivo del dataset (PDF): [`reports/PARCIAL_AA_ENTREGA2_CASSANO_JULIETA.pdf`](docs/PARCIAL_AA_ENTREGA2_CASSANO_JULIETA.pdf)
-- 📓 Notebook: [`notebooks/EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA_ENTREGA2_EDA.ipynb`](notebooks/EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA_ENTREGA2_EDA.ipynb)
-El informe interpretativo se encuentra incluido dentro de la notebook, en formato Markdown, con las explicaciones y conclusiones completas del análisis exploratorio.
+
+- **Dataset base:** [`data/raw/dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv`](data/raw/dataset_prestaciones_extrahospitalarias_2025_realista_v1.csv)  
+  > Conjunto de datos sintético generado por la autora. Contiene 1.200 registros y 21 variables (20 predictoras + 1 target).
+
+- **Informe descriptivo del dataset (PDF):** [`docs/PARCIAL_AA_ENTREGA2_CASSANO_JULIETA.pdf`](docs/PARCIAL_AA_ENTREGA2_CASSANO_JULIETA.pdf)  
+  > Documento que presenta el contexto, la metodología de generación y el diccionario de variables.
+
+- **Notebook del EDA:** [`notebooks/EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA_ENTREGA2_EDA.ipynb`](notebooks/EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA_ENTREGA2_EDA.ipynb)  
+  > Contiene el análisis exploratorio completo, con gráficos, tablas y conclusiones interpretativas.
 
 ## 6. Licencias y atribución
 - **Código:** MIT License  
