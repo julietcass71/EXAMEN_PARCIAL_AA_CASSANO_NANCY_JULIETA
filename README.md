@@ -52,8 +52,9 @@ El script generador se encuentra documentado en `src/data/make_dataset.py`.
 - Se detectaron autorizaciones residuales en combinaciones que deberían descartarse (p. ej., con cobertura activa o domicilio fuera de TDF), probablemente por ruido sintético o reglas conjuntas. Esto se documenta y se analizará con un árbol de decisión.
 
 ## 5. Archivos de la Entrega 2
+- 📘 Informe descriptivo del dataset (PDF): [`reports/PARCIAL_AA_ENTREGA2_CASSANO_JULIETA.pdf`](reports/PARCIAL_AA_ENTREGA2_CASSANO_JULIETA.pdf)
 - 📓 Notebook: [`notebooks/EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA_ENTREGA2_EDA.ipynb`](notebooks/EXAMEN_PARCIAL_AA_CASSANO_NANCY_JULIETA_ENTREGA2_EDA.ipynb)
-El informe interpretativo se encuentra **incluido dentro de la notebook**, en formato Markdown, con las explicaciones y conclusiones completas del análisis exploratorio.
+El informe interpretativo se encuentra incluido dentro de la notebook, en formato Markdown, con las explicaciones y conclusiones completas del análisis exploratorio.
 
 ## 6. Licencias y atribución
 - **Código:** MIT License  
