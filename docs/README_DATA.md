@@ -5,3 +5,7 @@
 - **Variables:** 12 (edad, zona, cobertura, documentación, informe social, disponibilidad en red pública, etc.).
 - **Variable objetivo:** `autorizado` (0 = no autorizado, 1 = autorizado).
 - **Uso:** exclusivo para fines académicos en la asignatura *Aprendizaje Automático*.
+
+Para más información técnica, consulte:
+- [Data Dictionary](data_dictionary.md)
+- [Dataset Card](dataset_card.md)
