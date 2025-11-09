@@ -1,43 +1,26 @@
 # Modelo Supervisado de Auditoría de Prestaciones Médicas Extrahospitalarias
 
-## Objetivo del Proyecto
-Este proyecto implementa modelos de clasificación supervisada para automatizar la preselección de solicitudes de prestaciones médicas extrahospitalarias.  
+## Abstract
 
-El objetivo principal es optimizar el proceso de auditoría, garantizando la seguridad del paciente y la equidad en el uso de los recursos.  
-Los casos con criterios claros pueden resolverse de manera automática, mientras que los casos ambiguos se destinan a supervisión profesional, manteniendo un equilibrio entre eficiencia y control.  
+This project aims to develop a supervised machine learning model that supports the auditing process of medical authorizations requested by uninsured patients when the required service is not available within the provincial public network.  
+A synthetic dataset of 500 simulated records was created, representing real authorization criteria such as documentation completeness, patient age, income level, geographic zone, and service availability.  
+The data were processed and analyzed using Python libraries including Pandas, NumPy, and Scikit-learn.  
+Logistic Regression and Decision Tree algorithms were trained and compared, obtaining an accuracy above 65%.  
+The model identified key variables such as income, documentation completeness, and service availability, reflecting realistic decision factors in medical audits.  
+These results demonstrate that machine learning can support medical auditing teams in prioritizing resources and ensuring transparency in authorization processes within the Tierra del Fuego health system.
 
-Desarrollado en el marco de la asignatura *Aprendizaje Automático* del *Centro Politécnico Superior Malvinas Argentinas* (2025).  
+## Resumen
 
----
-
-## Metodología
-Se compararon tres modelos de clasificación:
-
-- `DummyClassifier` (modelo base).  
-- **Regresión Logística**, seleccionada por su equilibrio entre rendimiento y explicabilidad.  
-- **Árbol de Decisión**, utilizado como apoyo interpretativo.  
-
-El flujo de trabajo incluyó preprocesamiento con *Pipeline* de `scikit-learn`, división estratificada de datos, evaluación con métricas de desempeño (*accuracy*, *recall*, *f1-score*, *AUC*) y ajuste de hiperparámetros con `GridSearchCV`.
-
----
-
-## Resultados Principales
-El modelo de **Regresión Logística** mostró el mejor desempeño operativo, con indicadores de precisión y recall elevados, y una adecuada capacidad de generalización (*AUC = 0.89*).  
-
-El **Árbol de Decisión** confirmó la coherencia del modelo al priorizar variables relevantes como `documentacion_completa`, `informe_social` y `derecho_a_cobertura`.
+Este proyecto tiene como objetivo desarrollar un modelo supervisado de aprendizaje automático que apoye el proceso de auditoría de solicitudes de prestaciones médicas extrahospitalarias de pacientes sin cobertura social, cuando el servicio requerido no se encuentra disponible dentro de la red pública provincial.  
+Se creó un conjunto de datos sintético de 500 registros simulados, que representa criterios reales de autorización como la completitud de la documentación, la edad del paciente, el nivel de ingresos, la zona geográfica y la disponibilidad del servicio.  
+Los datos fueron procesados y analizados mediante las bibliotecas de Python Pandas, NumPy y Scikit-learn.  
+Se entrenaron y compararon los algoritmos de Regresión Logística y Árbol de Decisión, obteniendo una precisión superior al 65%.  
+El modelo logró identificar variables relevantes —como ingresos, documentación y disponibilidad del servicio— que reflejan factores de decisión realistas en la auditoría médica.  
+Los resultados muestran que el aprendizaje automático puede contribuir a una auditoría más objetiva, eficiente y transparente en la gestión de prestaciones no hospitalarias en Tierra del Fuego.
 
 ---
 
-## Conclusión
-El modelo puede funcionar como un **filtro inicial inteligente**, mejorando la eficiencia del proceso de auditoría sin comprometer la revisión médica ni la seguridad del paciente.  
-Demuestra la aplicabilidad del *Machine Learning* en la gestión de prestaciones con un enfoque **ético, responsable y explicable**.
-
----
-
-## Autoría
-**Autora:** Nancy Julieta Cassano  
-**Docente:** Nicolás Caballero  
-**Institución:** Centro Politécnico Superior Malvinas Argentinas  
-**Año:** 2025
-
-
+**Author:** Nancy Julieta Cassano  
+**Professor:** Nicolás Caballero  
+**Institution:** Centro Politécnico Superior Malvinas Argentinas  
+**Year:** 2025
